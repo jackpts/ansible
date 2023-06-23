@@ -1,0 +1,10 @@
+-
+    name: 'Execute two commands on two hosts'
+    hosts: web_node1, sql_db1
+    tasks:
+        -
+            name: 'Execute a date command'
+            command: date
+        -
+            name: 'Execute a command to display hosts file'
+            command: 'cat /etc/hosts'

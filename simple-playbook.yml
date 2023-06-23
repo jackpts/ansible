@@ -1,0 +1,16 @@
+-
+  name: Play1
+  hosts: localhost
+  tasks:
+    - name: Execute command "date"
+      command: date
+    - name: Execure script on server
+      script: test_script.sh
+    - name: Install httpd service
+      pacman:
+        name: httpd
+        state: present
+    - name: Start webserver
+      service:
+        name: httpd
+        state: started
