@@ -1,7 +1,7 @@
-# Course: Ansible для начинающих + практический опыт
+# Course: Ansible для начинающих + практический опыт:
 - https://stepik.org/course/123806/syllabus
 
-## Docker container doc start
+### Docker container deploy w/ ssh origin doc:
 - https://www.techrepublic.com/article/deploy-docker-container-ssh-access/
 
 ### Build the image and deploy the container
@@ -25,9 +25,10 @@
     docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' arch_target2
 
 ### SSH
-    sudo nano /etc/hosts
+    # sudo nano /etc/hosts
+    sudo micro /etc/hosts
 
-```hosts
+```/etc/hosts
 172.17.0.2  target1
 172.17.0.3  target2
 ```
@@ -37,9 +38,20 @@
 ### run inventory
      ansible target1 -m ping -i inventory
 
+> target1 | SUCCESS => {
+"ansible_facts": {
+"discovered_interpreter_python": "/usr/bin/python3.11"
+},
+"changed": false,
+"ping": "pong"
+}
 
-## Errors
-#### after several deployments:
+
+
+------------------------------------------
+
+### Errors
+#### After several deployments:
     ssh root@target1
 
 > Add correct host key in /home/jacky/.ssh/known_hosts to get rid of this message.
@@ -50,7 +62,7 @@ Host key verification failed.
     tail ~/.ssh/known_hosts | grep target1
     ssh-keygen -R target1
 
-> # Host target1 found: line 11
+> Host target1 found: line 11
 > /home/jacky/.ssh/known_hosts updated.
 > Original contents retained as /home/jacky/.ssh/known_hosts.old
 
