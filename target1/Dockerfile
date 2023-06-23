@@ -6,7 +6,9 @@ RUN echo 'root:123' | chpasswd
 
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-# RUN sed -i 's/# info "Local IP" local_ip/info "Local IP" local_ip/' ~/.config/neofetch/config.conf
+RUN neofetch
+
+RUN sed -i 's/# info "Local IP" local_ip/info "Local IP" local_ip/' ~/.config/neofetch/config.conf
 
 RUN echo neofetch >> /etc/bash.bashrc
 
