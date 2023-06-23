@@ -5,10 +5,7 @@
 - https://www.techrepublic.com/article/deploy-docker-container-ssh-access/
 
 ### Build the image and deploy the container
-    cd target1/
     docker build -t arch_target1 .
-
-    cd ../target2/
     docker build -t arch_target2 .
 
 ### Deploy
@@ -17,9 +14,9 @@
     docker ps
 
 ```text
-CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                                    NAMES
-581d25793897   arch_target2   "/usr/sbin/sshd -D"      5 seconds ago    Up 4 seconds    0.0.0.0:32773->22/tcp, :::32773->22/tcp                  arch_target2
-5984d137c941   arch_target1   "/usr/sbin/sshd -D"      55 minutes ago   Up 55 minutes   0.0.0.0:32772->22/tcp, :::32772->22/tcp                  arch_target1
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                                    NAMES
+0c8e9efeb68e   arch_target2   "/usr/sbin/sshd -D"      2 seconds ago   Up 1 second    0.0.0.0:32778->22/tcp, :::32778->22/tcp                  arch_target2
+b24f2158f2df   arch_target1   "/usr/sbin/sshd -D"      7 seconds ago   Up 7 seconds   0.0.0.0:32777->22/tcp, :::32777->22/tcp                  arch_target1
 ```
 
 
@@ -28,7 +25,8 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
     docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' arch_target2
 
 ### SSH
-    # sudo nano /etc/hosts
+    # echo $(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' arch_target1) target1 >> /etc/hosts
+    # echo $(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' arch_target2) target2 >> /etc/hosts
     sudo micro /etc/hosts
 
 ```/etc/hosts
