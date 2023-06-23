@@ -97,13 +97,13 @@ host_key_checking = false
 "ping": "pong"
 }
 
-#### 3. Target1  UNREACHABLE!
+#### 3. Target UNREACHABLE!
 
      ansible target1 -m ping -i inventory
 
 > target1 | UNREACHABLE! => {
 "changed": false,
-"msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ED25519 key sent by the remote host is\nSHA256:+F8M4fovU1UZ9YYjte489g9Y2PHgB1NOMBgfmRfjo3w.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/jacky/.ssh/known_hosts to get rid of this message.\r\nOffending ED25519 key in /home/jacky/.ssh/known_hosts:12\r\nPassword authentication is disabled to avoid man-in-the-middle attacks.\r\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\r\nUpdateHostkeys is disabled because the host key is not trusted.\r\nroot@172.17.0.2: Permission denied (publickey,password).",
+"msg": "Failed to connect to the host via ssh: WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ED25519 key sent by the remote host is\nSHA256:+F8M..3w.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/jacky/.ssh/known_hosts to get rid of this message.\r\nOffending ED25519 key in /home/jacky/.ssh/known_hosts:12\r\nPassword authentication is disabled to avoid man-in-the-middle attacks.\r\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\r\nUpdateHostkeys is disabled because the host key is not trusted.\r\nroot@172.17.0.2: Permission denied (publickey,password).",
 "unreachable": true
 }
 
