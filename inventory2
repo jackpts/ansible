@@ -1,0 +1,14 @@
+app ansible_host=server1.domain.com  ansible_connection=ssh ansible_user=venus ansible_ssh_pass=123
+web ansible_host=server2.domain.com  ansible_connection=winrm ansible_user=admin ansible_password=123  # for Win!
+
+localhost ansible_connection=local
+
+[mail_internal]
+mail1.domain.com
+
+[mail_external]
+mail2.domain.com
+
+[mail_all:children]    # объединяем группы для совместной работы
+mail_internal
+mail_external
