@@ -1,5 +1,9 @@
 # Course: Ansible для начинающих + практический опыт:
 - https://stepik.org/course/123806/syllabus
+- Rotoro cloud labs: https://rotoro.cloud/ld-courses/ansible-для-начинающих-практический-опыт/
+- Beginners QA: https://github.com/rotoro-cloud/ansible-for-beginners
+- Official Doc: https://docs.ansible.com/ansible/latest/index.html
+- Telegram: https://t.me/RoToRoCloud
 
 ### Docker container deploy w/ ssh origin helper doc (for ubuntu image & error in `sed` usage):
 - https://www.techrepublic.com/article/deploy-docker-container-ssh-access/
