@@ -1,0 +1,11 @@
+-
+  name: Test connection to targets
+  hosts: linux
+  tasks:
+    - name: Ping test
+      ping:
+- name: Test connection to other servers
+  hosts: ungrouped
+  tasks:
+    - name: Ping test
+      win_ping:

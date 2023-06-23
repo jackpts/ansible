@@ -41,7 +41,7 @@ b24f2158f2df   arch_target1   "/usr/sbin/sshd -D"      7 seconds ago   Up 7 seco
     ssh root@target1
     ssh root@target2
 
-### run inventory
+### Commands
      ansible target1 -m ping -i inventory
 
 > target1 | SUCCESS => {
@@ -52,6 +52,53 @@ b24f2158f2df   arch_target1   "/usr/sbin/sshd -D"      7 seconds ago   Up 7 seco
 "ping": "pong"
 }
 
+    ansible all -m ping -i inventory 
+> target1 | SUCCESS => {
+"ansible_facts": {
+"discovered_interpreter_python": "/usr/bin/python3.11"
+},
+"changed": false,
+"ping": "pong"
+}
+> target2 | SUCCESS => {
+"ansible_facts": {
+"discovered_interpreter_python": "/usr/bin/python3.11"
+},
+"changed": false,
+"ping": "pong"
+}
+
+    ansible-playbook playbook-ping.yml -i inventory-ping 
+> ok: [target2]
+> ok: [target1]
+target1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+target2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+    ansible-playbook playbook-ping.yml -i inventory-ping -vvv
+```text
+<target1> ESTABLISH SSH CONNECTION FOR USER: root
+<target1> SSH: EXEC sshpass -d15 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o 'User="root"' -o ConnectTimeout=10 -o 'ControlPath="/home/jacky/.ansible/cp/9a3d60751b"' target1 '/bin/sh -c '"'"'echo ~root && sleep 0'"'"''
+...
+ok: [target2] => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "data": "pong"
+        }
+    },
+    "ping": "pong"
+}
+ok: [target1] => {
+"changed": false,
+"invocation": {
+"module_args": {
+"data": "pong"
+}
+},
+"ping": "pong"
+}
+```
 
 
 ------------------------------------------
