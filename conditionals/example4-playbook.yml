@@ -1,0 +1,11 @@
+- name: Check status of service and eamil if its down
+  hosts: localhost
+  tasks:
+    - command: service httpd status
+      register: command_output
+
+    -mail:
+      to: Admins <system.admins@domain.com>
+      subject: Service Alert
+      body: "Httpd on {{ ansible_hostname }} is down"
+      when: command_output.stdout.find('down') != -1

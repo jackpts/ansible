@@ -1,0 +1,8 @@
+web1 ansible_host=web1.domain.com ansible_connection=ssh ansible_ssh_pass=pAsSS
+db ansible_host=db.domain.com ansible_connection=ssh ansible_ssh_pass=pAs$
+web2 ansible_host=web2.domain.com ansible_connection=ssh ansible_ssh_pass=PAss
+
+[all_servers] # Server group
+web1
+db
+web2

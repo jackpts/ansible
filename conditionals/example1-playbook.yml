@@ -1,0 +1,9 @@
+- name: Start_services
+  hosts: all_servers
+  tasks:
+    - service: name=mysqld state=started
+      when: ansible_host == "db.domain.com"
+
+    - service: name=httpd state=started
+      when: ansible_host == "web1.domain.com" or
+        ansible_host == "web2.domain.com"

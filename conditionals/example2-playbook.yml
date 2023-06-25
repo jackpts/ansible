@@ -1,0 +1,16 @@
+-
+  name: Install Nginx
+  hosts: all
+  tasks:
+    - name: Install Nginx on Ubuntu
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian" and
+        ansible_distribution_version == "16.04"
+    - name: Install nginx on Centos
+      yum:
+        name: nginx
+        state: present
+      when: ansible_os_family == "RedHat" or
+        ansible_os_family == "Suse"
