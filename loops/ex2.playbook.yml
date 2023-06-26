@@ -1,0 +1,15 @@
+-
+  name: Install packages
+  hosts: localhost
+  tasks:
+    - yum: name='{{ item }}' state=present
+      with_items:
+        - httpd
+        - binutils
+        - glibc
+        - ksh
+        - gcc
+        - make
+        - sysstat
+        - mongodb
+        - nodejs

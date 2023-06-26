@@ -1,0 +1,12 @@
+-
+  name: Check Mongo Instances
+  hosts: localhost
+  tasks:
+    - debug: msg='DB={{ item.database }} PID={{ item.pid }}'
+      with_mongodb:
+        - database: dev
+          connection_string: "mongodb://localhost:27017/dev"
+          pid: 101
+        - database: prod
+          connection_string: "mongodb://localhost:27017/prod"
+          pid: 102

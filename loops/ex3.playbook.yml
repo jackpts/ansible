@@ -1,0 +1,9 @@
+-
+  name: View Config files
+  hosts: localhost
+  tasks:
+    - debug: msg='{{ item }}'
+      with_file:
+        - "/etc/hosts"
+        - "/etc/resolv.conf"
+        - "/etc/ntp.conf"
