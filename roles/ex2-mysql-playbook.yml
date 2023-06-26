@@ -1,0 +1,5 @@
+- name: Install and Configure MySQL
+  hosts: fleet-of-db-servers
+  become: yes
+  roles:
+    - ex2-mysql-role

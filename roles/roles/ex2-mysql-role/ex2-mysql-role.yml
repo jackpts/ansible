@@ -1,0 +1,17 @@
+-
+    name: MySQL role
+    tasks:
+        - name: Prerequisites - MySQL repo
+          yum: name='{{ custom_repository }}' state=present
+        - name: Install MySQL packages
+          yum: name='{{ packages }}' state=present
+          vars:
+            packages:
+              - mysql-community-server
+              - mysql-community-client
+              - MySQL-python
+        - name: Start MySQL service
+          service: name=mysqld state=started
+        - name: Configure DB
+          mysql_db: name=`{{ db_name }}` state=present
+

@@ -1,0 +1,5 @@
+- name: Install and Conofigure All
+  hosts: db-and-web-servers
+  roles:
+    - rotoro_cloud.mysql_role
+    - nginx

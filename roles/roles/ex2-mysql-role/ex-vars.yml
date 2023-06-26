@@ -1,0 +1,4 @@
+packages:
+  - mysql-community-server
+  - mysql-community-client
+  - MySQL-python

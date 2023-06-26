@@ -1,0 +1,3 @@
+http_port: 8081
+snmp_port: 160-161
+inter_ip_range: 192.0.2.0

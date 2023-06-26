@@ -1,0 +1,12 @@
+-
+  name: Set firewall config
+  hosts: web
+  var_files:
+    - ex1-vars.yml
+
+  tasks:
+    - include: ex1-tasks.yml
+
+    - name: if var exists
+      include: ex1-define-vars.yml
+      when: smevar is not defined
